@@ -69,6 +69,12 @@ Use Vitest with jsdom and Testing Library. Test behavior visible to users rather
 than component internals. Isolate URL and Reatom context between tests, and
 reset the default Reatom context when shared primitives are involved.
 
+## Responsive design
+
+Adapt every user-facing change for both mobile and desktop users. Ensure layouts,
+content, navigation, and interactions remain usable and visually coherent across
+small and large viewports.
+
 ## Code quality
 
 - TypeScript remains in strict mode; avoid `any`.

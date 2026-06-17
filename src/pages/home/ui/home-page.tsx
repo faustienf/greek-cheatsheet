@@ -1,4 +1,9 @@
-export function HomePage() {
+type HomePageProps = {
+  pronounsHref: string;
+  verbsHref: string;
+};
+
+export function HomePage({ pronounsHref, verbsHref }: HomePageProps) {
   return (
     <main className="relative isolate flex min-h-screen items-center overflow-hidden px-6 py-16 sm:px-10">
       <div
@@ -25,18 +30,70 @@ export function HomePage() {
           </h1>
 
           <p className="mt-8 max-w-xl text-lg leading-8 text-slate-600 sm:text-xl">
-            The first reference pages are being prepared. A clear, compact guide
-            to Greek vocabulary and grammar is on its way.
+            Практичный справочник по новогреческой лексике и грамматике с
+            переводом на русский.
           </p>
+
+          <div className="mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">
+            <ReferenceCard
+              description="εγώ, εσύ, μου, σε and other forms"
+              href={pronounsHref}
+              label="Грамматика"
+              title="Местоимения"
+            />
+            <ReferenceCard
+              description="έχω, είχα, θα έχω and everyday words"
+              href={verbsHref}
+              label="Лексика"
+              title="Глаголы"
+            />
+          </div>
         </div>
 
         <footer className="mt-16 flex items-center gap-4 text-sm text-slate-500">
           <span className="bg-sun text-ink grid size-10 place-items-center rounded-full font-semibold">
             α
           </span>
-          <span>Currently in development</span>
+          <span>Справочник пополняется</span>
         </footer>
       </section>
     </main>
+  );
+}
+
+type ReferenceCardProps = {
+  href: string;
+  label: string;
+  title: string;
+  description: string;
+};
+
+function ReferenceCard({
+  href,
+  label,
+  title,
+  description,
+}: ReferenceCardProps) {
+  return (
+    <a
+      className="group focus-visible:outline-sea flex items-center justify-between gap-5 rounded-2xl border border-white/80 bg-white/75 p-5 shadow-[0_18px_50px_rgba(23,32,51,0.09)] transition hover:-translate-y-0.5 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 sm:p-6"
+      href={href}
+    >
+      <span>
+        <span className="text-sea block text-xs font-semibold tracking-[0.2em] uppercase">
+          {label}
+        </span>
+        <span className="text-ink mt-2 block text-xl font-semibold">
+          {title}
+        </span>
+        <span className="mt-1 block text-sm text-slate-600">{description}</span>
+      </span>
+      <span
+        aria-hidden="true"
+        className="bg-sun text-ink grid size-11 shrink-0 place-items-center rounded-full text-xl transition group-hover:translate-x-1"
+      >
+        →
+      </span>
+    </a>
   );
 }

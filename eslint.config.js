@@ -110,6 +110,7 @@ export default tseslint.config(
         'error',
         { prefer: 'type-imports' },
       ],
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     },
   },
   {

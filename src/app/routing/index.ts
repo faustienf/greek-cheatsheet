@@ -1,1 +1,1 @@
-export { homeRoute, rootRoute } from './routes';
+export { homeRoute, pronounsRoute, rootRoute, verbsRoute } from './routes';
