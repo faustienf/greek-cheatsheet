@@ -1,4 +1,0 @@
-allowBuilds:
-  unrs-resolver: true
-minimumReleaseAgeExclude:
-  - eslint-plugin-react-refresh@0.5.3
